@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PULKIT EDUCATION ACADEMY</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background: #f5f5f5;
+        }
+
+        .academy-header {
+            background: linear-gradient(to right, #0066ff, #00ccff);
+            color: white;
+            padding: 10px 20px;
+        }
+
+        .academy-name {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .contact-info {
+            font-size: 0.9em;
+        }
+
+        .social-links {
+            float: right;
+        }
+
+        .social-links a {
+            color: white;
+            margin-left: 15px;
+            text-decoration: none;
+            font-size: 1.2em;
+        }
+
+        .sliding-address {
+            background-color: #004a99;
+            color: white;
+            padding: 8px 20px;
+            white-space: nowrap;
+            overflow: hidden;
+        }
+
+        .sliding-text {
+            animation: slide 20s linear infinite;
+            display: inline-block;
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translateX(100%);
+            }
+
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        nav {
+            background-color: maroon;
+            padding: 10px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .main-section {
+            display: flex;
+            gap: 20px;
+            padding: 20px;
+            background: white;
+            flex-wrap: wrap;
+        }
+
+        .poster-container {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .poster-container img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .hero-video {
+            position: relative;
+            width: 100%;
+            max-height: 500px;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .hero-video video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: 8px;
+        }
+
+        .dynamic-section {
+            display: none;
+            padding: 20px;
+            background: white;
+        }
+
+        .dynamic-section.active {
+            display: block;
+        }
+
+        /* Responsive video grid */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        .video-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-card p {
+            margin: 10px;
+            font-weight: bold;
+        }
+
+        /* Responsive iframe */
+        .video-card iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: none;
+        }
+
+        .footer-container {
+            background: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .footer-container p {
+            margin: 5px 0;
+        }
+
+        .footer-map iframe {
+            width: 100%;
+            height: 250px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 600px) {
+            .academy-name {
+                font-size: 1.2em;
+            }
+
+            .contact-info {
+                font-size: 0.8em;
+            }
+
+            .footer-container {
+                font-size: 0.85em;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <div class="academy-header">
+        <div class="social-links">
+            <p style="margin:0; font-size:0.9em;">Follow and Subscribe</p>
+            <a href="https://www.facebook.com/brightshorthandtypingacademykaithal/"><i class="fab fa-facebook"></i></a>
+            <a href="https://www.instagram.com/tejanshusethi/"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.youtube.com/@BrightShorthandTyping/featured"><i class="fab fa-youtube"></i></a>
+        </div>
+        <br>
+        <div class="academy-name">⭐ Bright Shorthand & Typing Academy ⭐</div>
+        <div class="contact-info">CALL US : +91 9255592950</div>
+    </div>
+
+    <!-- SLIDING ADDRESS -->
+    <div class="sliding-address">
+        <div class="sliding-text">📍 Offline Coaching Address: Siwan gate near Bhajrang bhawan Kaithal, Haryana</div>
+    </div>
+
+    <!-- NAVBAR -->
+    <nav>
+        <a onclick="showSection('home')">Dashboard</a>
+        <a onclick="showSection('steno')">Steno demo videos</a>
+        <a onclick="showSection('join')">Join us</a>
+        <a onclick="showSection('others')">Others</a>
+    </nav>
+
+    <!-- HOME -->
+    <div id="home" class="dynamic-section active">
+        <div class="main-section">
+            <div class="poster-container">
+                <img src="/images.jpeg" alt="Bright Academy Poster">
+            </div>
+            <div class="hero-video">
+                <video autoplay muted loop playsinline>
+                    <source src="WhatsApp Video 2025-09-08 at 01.47.15.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+        </div>
+    </div>
+
+    <!-- STENO VIDEOS -->
+    <div id="steno" class="dynamic-section">
+        <h2>🎥 Steno Test Videos</h2>
+        <div class="video-grid">
+            <div class="video-card"><iframe id="player1"
+                    src="https://www.youtube.com/embed/IvqQ0EBs0QM?rel=0&modestbranding=1&controls=1&enablejsapi=1"
+                    allowfullscreen></iframe>
+                <p>Steno Dictation Demo</p>
+            </div>
+            <div class="video-card"><iframe id="player2"
+                    src="https://www.youtube.com/embed/JctqVivjfNs?rel=0&modestbranding=1&controls=1&enablejsapi=1"
+                    allowfullscreen></iframe>
+                <p>Steno Dictation Demo</p>
+            </div>
+            <div class="video-card"><iframe id="player3"
+                    src="https://www.youtube.com/embed/zWwHM1FwXr0?rel=0&modestbranding=1&controls=1&enablejsapi=1"
+                    allowfullscreen></iframe>
+                <p>Steno Dictation Demo</p>
+            </div>
+            <div class="video-card"><iframe id="player4"
+                    src="https://www.youtube.com/embed/zSoby-uddyQ?rel=0&modestbranding=1&controls=1&enablejsapi=1"
+                    allowfullscreen></iframe>
+                <p>Steno Dictation Demo</p>
+            </div>
+            <div class="video-card"><iframe id="player5"
+                    src="https://www.youtube.com/embed/DSUkZnGSb_0?rel=0&modestbranding=1&controls=1&enablejsapi=1"
+                    allowfullscreen></iframe>
+                <p>Steno Dictation Demo</p>
+            </div>
+            <div class="video-card"><iframe id="player6"
+                    src="https://www.youtube.com/embed/mwVn19ptCK4?rel=0&modestbranding=1&controls=1&enablejsapi=1"
+                    allowfullscreen></iframe>
+                <p>Steno Dictation Demo</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- OTHERS -->
+    <div id="others" class="dynamic-section">
+        <h2>💼 Government Job Preparation</h2>
+        <p>
+            Welcome to <b>Bright Shorthand & Typing Academy</b>.<br><br>
+            If you are preparing for a <b>Government Job</b>, don’t wait any longer!<br>
+            Learn <b>Typing</b> and <b>Shorthand</b> with us and give your career the right direction.<br><br>
+            📞 <b>Contact us today:</b> <span style="color:maroon; font-weight:bold;">+91 9255592950</span>
+        </p>
+        <div style="margin-top:20px; text-align:center;">
+            <a href="tel:+919255592950"
+                style="display:inline-block; padding:10px 20px; background:linear-gradient(to right, #0066ff, #00ccff); color:white; font-weight:bold; border-radius:6px; text-decoration:none; font-size:1.1em;">📲
+                Call Now</a>
+        </div>
+    </div>
+
+    <!-- JOIN -->
+    <div id="join" class="dynamic-section">
+        <h2>📍 Visit Us</h2>
+        <p><b>Bright Shorthand & Typing Academy</b></p>
+        <p>Siwan Gate, near Bhajrang Bhawan, Kaithal, Haryana</p>
+        <p>📞 Contact: +91 9255592950</p>
+        <div class="footer-map"> <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3446.645632672556!2d76.38123117533605!3d29.801371575046758!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3911a2f3b179e72f%3A0xa6c9e6bdfb1ef82f!2sBright%20Shorthand%20%26%20Typing%20Academy!5e0!3m2!1sen!2sin!4v1694145632345!5m2!1sen!2sin"
+                allowfullscreen="" loading="lazy"></iframe> </div>
+        <div style="margin-top:15px; text-align:center;"> <a
+                href="https://www.google.com/maps/dir/?api=1&destination=29.801371575046758,76.38123117533605"
+                target="_blank"
+                style="display:inline-block; padding:10px 20px; background:maroon; color:white; font-weight:bold; border-radius:6px; text-decoration:none;">
+                🚗 View Directions </a> </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer-container">
+        <p>Bright Shorthand & Typing Academy | 📞 +91 9466485991</p>
+        <p>Siwan Gate, near Bhajrang Bhawan, Kaithal, Haryana</p>
+        <p>📞 Contact: +91 9255592950</p>
+        <hr style="margin:15px 0; border: 0; border-top: 1px solid #555;">
+        <p style="font-size:0.9em; color:#ccc;">⚠️ Caution: All video content is for educational purposes only.
+            Unauthorized use, reproduction, or distribution is strictly prohibited.</p>
+        <p style="font-size:0.9em; color:#aaa; margin-top:8px;">👨‍💻 Developed & Designed by <b
+                style="color:#00ccff;">Tejanshu Sethi</b></p>
+    </div>
+
+    <script>
+        function showSection(id) {
+            document.querySelectorAll('.dynamic-section').forEach(sec => sec.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+        }
+
+        // YouTube API setup
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/iframe_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        var players = {};
+        function onYouTubeIframeAPIReady() {
+            for (let i = 1; i <= 6; i++) {
+                players['player' + i] = new YT.Player('player' + i, {
+                    events: { 'onStateChange': onPlayerStateChange }
+                });
+            }
+        }
+        function onPlayerStateChange(event) {
+            if (event.data === YT.PlayerState.ENDED) {
+                const videoData = event.target.getVideoData();
+                event.target.cueVideoById(videoData.video_id);
+            }
+        }
+    </script>
+</body>
+
+</html>
